@@ -1,0 +1,22 @@
+{
+  "name": "getimage",
+  "version": "0.0.0",
+  "description": "get image's url in html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xingyan/get-image-html.git"
+  },
+  "keywords": [
+    "xingyan"
+  ],
+  "author": "xingyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xingyan/get-image-html/issues"
+  },
+  "homepage": "https://github.com/xingyan/get-image-html"
+}
