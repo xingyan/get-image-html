@@ -1,4 +1,4 @@
-var reg = /<img[\s\S]*?src\s*=\s*['"]([\w\/\-_]*\.(png|jpg|gif|bmp|jpe|jpeg|webp))\s*['|"]\s*\/?>/ig;
+var reg = /(?!https?:)[\w\/\-_]+?\.(png|jpg|gif|bmp|jpe|jpeg|webp|swf)/g;
 
 module.exports = function(str) {
   if(str instanceof Buffer) str = str.toString();
@@ -6,8 +6,7 @@ module.exports = function(str) {
   str.replace(reg, function($1, $2) {
     if(!$1 || !$2)  return;
     ret.push({
-      str: $1,
-      path: $2
+      path: $1
     });
   });
   return ret;
