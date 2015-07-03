@@ -3,14 +3,14 @@ var should = require('should');
 var fs = require('fs');
 require('mocha');
 
-var htmlStr = 'sdfsdf<img alt="" src="../test.jpg"/>\n<img src="../test22.jpg"/>sdfsd<img>';
+var htmlStr = 'sdfsdf<img alt="" src="/test.jpg"/>\n<img src="../test22.jpg"/>sdfsd<img>';
 
 describe('get-image-html()', function() {
-  it('should get images path', function () {
+  it('should get path correctly', function () {
     var res = getImg(htmlStr);
     res.should.be.instanceof(Array).and.have.lengthOf(2);
-    res[0].should.eql({str: '<img alt="" src="../test.jpg"/>',path:'../test.jpg'});
-    res[1].should.eql({str: '<img src="../test22.jpg"/>',path:'../test22.jpg'});
+    res[0].should.eql({path:'/test.jpg'});
+    res[1].should.eql({path:'../test22.jpg'});
   });
 
   it('should support buffer', function (done) {

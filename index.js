@@ -1,15 +1,14 @@
 var path = require('path');
-var reg = /<img\s(?:\s*|[^>]*\s)src\s*=\s*('|")([^>]*)\s*\1\s*\/?>/ig;
+var reg = /(?!https?:)[\w\/\-.]+?\.(?:png|jpg|gif|bmp|jpe|jpeg|gif|ico|zip|rar|webp|swf)/ig;
 
 module.exports = function(str) {
   if(str instanceof Buffer) str = str.toString();
   var ret = [];
-  str.replace(reg, function(matchStr, p1, p2) {
-    p2 = path.normalize(p2.trim());
-    if(!p2)  return;
+  str.replace(reg, function(m) {
+    m = path.normalize(m.trim());
+    if(!m)  return;
     ret.push({
-      str: matchStr,
-      path: p2
+      path: m
     });
   });
   return ret;
