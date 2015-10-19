@@ -5,7 +5,7 @@ module.exports = function(str) {
   var ret = [];
   str.replace(reg, function(match, quote, imgpath) {
     imgpath = path.normalize(imgpath.trim());
-    imgpath && ret.push({"path": imgpath});
+    imgpath && ret.push({"path": imgpath.replace(path.sep,'/')});
   });
   return ret;
 }
