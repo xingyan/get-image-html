@@ -1,6 +1,6 @@
 {
   "name": "getimage",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "get image's url in html",
   "main": "index.js",
   "scripts": {
